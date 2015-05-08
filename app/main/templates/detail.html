@@ -1,0 +1,40 @@
+<ion-view view-title="Tweet" on-swipe-left="detail.onSwipeLeft()">
+
+  <!--
+
+    HEADER with buttons
+
+  -->
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-ios-arrow-left" ui-sref="main"></button>
+  </ion-nav-buttons>
+
+
+
+<ion-content>
+
+  <!-- ERROR IF ANY -->
+  <ng-include src="'main/templates/error.html'"></ng-include>
+
+
+  <!--
+
+    PLACEHOLDER FOR SPECIFIC ID
+
+  -->
+  <div class="list card">
+      <div class="row row-top">
+        <div class="col col-20">
+          <img ng-src="{{detail.tweet.user.profile_image_url}}">
+        </div>
+        <div class="col col-80">
+          <p><b>{{detail.tweet.user.name}}</b> <small>@{{detail.tweet.user.screen_name}}</small></p>
+          <p ng-bind-html="detail.tweet.text | linky" ng-click="detail.clickedLink($event)"></p>
+          <p align="right"><small>{{detail.tweet.created_at | datestringToObject | date:'short'}}</small></p>
+        </div>
+      </div>
+  </div>
+
+
+</ion-content>
+</ion-view>

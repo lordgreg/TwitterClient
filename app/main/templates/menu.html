@@ -1,0 +1,15 @@
+<ion-side-menu side="left" ng-controller="MenuCtrl as menu">
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Sorting</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item nav-clear menu-close ng-click="menu.someData.tweetOrder = 'created_at'; menu.someData.tweetOrderReverse = !menu.someData.tweetOrderReverse">
+        by Date
+      </ion-item>
+      <ion-item nav-clear menu-close ng-click="menu.someData.tweetOrder = 'user.screen_name'; menu.someData.tweetOrderReverse = !menu.someData.tweetOrderReverse">
+        by @User
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-side-menu>

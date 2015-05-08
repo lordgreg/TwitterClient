@@ -1,0 +1,64 @@
+<ion-view view-title="Twitter Client">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-android-search" ng-click="start.showSearch = !start.showSearch"></button>
+  </ion-nav-buttons>
+  <!-- HEADER -->
+  <!-- <ion-nav-title>
+    <div class="bar bar-header bar-energized">
+      <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()"></button>
+      <div class="h1 title">Twitter Client</div>
+      <button class="button button-icon icon ion-android-search" ng-click="start.showSearch = !start.showSearch"></button>
+    </div>
+  </ion-nav-title> -->
+
+
+  <!-- SUBHEADER -->
+  <form ng-submit="start.doRefresh()">
+  <div class="bar bar-subheader bar-stable item-input-inset" ng-show="start.showSearch">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" name="search" ng-model="start.someData.searchString" ng-minlength="3" placeholder="Search">
+    </label>
+    <button class="button button-clear">
+      Go!
+    </button>
+  </div>
+</form>
+
+  <!-- CONTENT -->
+  <ion-content ng-class="{'has-subheader': start.showSearch}">
+
+    <!-- REFRESHER -->
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="start.doRefresh()">
+    </ion-refresher>
+
+    <!-- ERROR IF ANY -->
+    <ng-include src="'main/templates/error.html'"></ng-include>
+
+
+    <!-- PLACEHOLDER FOR SEARCH RESULTS TWEETS -->
+    <div class="list card" ng-repeat="tweet in start.someData.tweets | orderBy: start.someData.tweetOrder:start.someData.tweetOrderReverse " ng-click="start.loadTweet('{{tweet.id_str}}')" id="{{tweet.id_str}}">
+      <div class="row row-top">
+        <div class="col col-20">
+          <a ui-sref="#/detail/{{tweet.id_str}}">
+            <img ng-src="{{tweet.user.profile_image_url}}">
+          </a>
+        </div>
+        <div class="col col-80">
+          <p><b>{{tweet.user.name}}</b> <small>@{{tweet.user.screen_name}}</small></p>
+          <p ng-bind-html="tweet.text | linky" ng-click="start.clickedLink($event)"></p>
+          <p align="right"><small>{{tweet.created_at | datestringToObject | date:'short'}}</small></p>
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
+
+
+</ion-view>

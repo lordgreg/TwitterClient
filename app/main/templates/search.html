@@ -1,0 +1,96 @@
+<form ng-controller="SearchCtrl">
+
+
+<ion-view view-title="Search">
+
+  <!--
+
+    HEADER with buttons
+
+  -->
+  <ion-nav-title>
+
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" name="search" ng-model="search.search" placeholder="Search">
+      </label>
+      <button class="button button-clear" ui-sref="main">
+        Cancel
+      </button>
+    </div>
+</ion-nav-title>
+
+
+<ion-content>
+  <small>Output: {{search.search}}</small>
+
+  <!--
+
+    SEARCH PLACEHOLDER
+
+  -->
+  <div class="list card">
+
+    <p class="item">
+      <b>Search result 1</b><br />
+      Some more info about result 1
+    </p>
+
+
+    <p class="item">
+      <b>Search result 1</b><br />
+      Some more info about result 1
+    </p>
+
+    <p class="item">
+      <b>Search result 1</b><br />
+      Some more info about result 1
+    </p>
+
+  </div>
+
+
+
+</ion-content>
+</ion-view>
+
+</form>
+
+
+<!--
+<ion-nav-view>
+  <ion-view>
+    <ion-nav-buttons side="primary">
+      <button class="button" ng-click="doSomething()">
+        I'm a button on the primary of the navbar!
+      </button>
+    </ion-nav-buttons>
+    <ion-content>
+      Some super content here!
+    </ion-content>
+  </ion-view>
+</ion-nav-view>
+-->
+
+
+<!--
+<ion-view view-title="main module">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-divider">
+        This is your search template!
+      </ion-item>
+      <ion-item class="item item-icon">
+        icons working?
+        <i class="icon ion-checkmark-circled"></i>
+      </ion-item>
+      <ion-item class="item item-thumbnail">
+        images working?<br>
+        <img width="75" src="main/assets/images/yo@2x.png">
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
+-->

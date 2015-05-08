@@ -1,0 +1,20 @@
+{
+  "generator-m": {
+    "answers": {
+      "appName": "Twitter Client",
+      "appId": "com.mwaysolutions.gpapez.twitterclient",
+      "bowerPackages": [
+        "angular-dynamic-locale#~0.1.27",
+        "angular-translate#~2.6.1",
+        "angular-translate-loader-static-files#~2.6.1",
+        "angular-localForage#~1.2.2"
+      ],
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "plugins": [],
+      "appModule": "twitterClient"
+    }
+  }
+}
