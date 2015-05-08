@@ -7,14 +7,6 @@
   <ion-nav-buttons side="right">
     <button class="button button-icon icon ion-android-search" ng-click="start.showSearch = !start.showSearch"></button>
   </ion-nav-buttons>
-  <!-- HEADER -->
-  <!-- <ion-nav-title>
-    <div class="bar bar-header bar-energized">
-      <button class="button button-icon icon ion-navicon" ng-click="toggleLeft()"></button>
-      <div class="h1 title">Twitter Client</div>
-      <button class="button button-icon icon ion-android-search" ng-click="start.showSearch = !start.showSearch"></button>
-    </div>
-  </ion-nav-title> -->
 
 
   <!-- SUBHEADER -->
@@ -51,7 +43,7 @@
         </div>
         <div class="col col-80">
           <p><b>{{tweet.user.name}}</b> <small>@{{tweet.user.screen_name}}</small></p>
-          <p ng-bind-html="tweet.text | linky" ng-click="start.clickedLink($event)"></p>
+          <p ng-bind-html="tweet.text | linky" ng-click="Start.clickedLink($event)"></p>
           <p align="right"><small>{{tweet.created_at | datestringToObject | date:'short'}}</small></p>
         </div>
       </div>

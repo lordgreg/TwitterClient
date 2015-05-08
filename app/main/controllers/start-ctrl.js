@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('StartCtrl', function ($ionicPlatform, $state, $scope, $ionicSideMenuDelegate, Config, Start) {
+.controller('StartCtrl', function ($window, $ionicPlatform, $state, $scope, $ionicSideMenuDelegate, Config, Start) {
 
   /**
    *
@@ -27,6 +27,16 @@ angular.module('main')
    * google search: ionic pull to refresh
   **/
   this.doRefresh = function () {
+
+    // check if we have keyboard open
+    /*global ionic*/
+    if (ionic.Platform.isWebView()) {
+
+      if ($window.cordova.plugins.Keyboard.isVisible) {
+        $window.cordova.plugins.Keyboard.hide();
+      }
+
+    }
 
     // clear tweets array
     that.someData.tweets = [];

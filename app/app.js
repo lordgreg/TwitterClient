@@ -27,7 +27,7 @@ angular.module('twitterClient', [
     // device is now ready... start init.
     Start.init();
 
-    console.log('we ran the init.');
+    // console.log('we ran the init.');
 
   });
 

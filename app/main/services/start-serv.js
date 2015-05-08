@@ -34,6 +34,27 @@ angular.module('main')
   }, 100);
 
   /**
+  * Click links should open in-app-browser
+  * We are going to prevent default if our srcElement is a, then check if we
+  * have URL saved. If this is true, we prevent, otherwise we continue.
+  **/
+  this.clickedLink = function ($event) {
+
+    // console.log($event);
+
+    if ($event.srcElement.tagName === 'A' && $event.srcElement.href !== '') {
+      // console.log('we clicked the link ' + $event.srcElement.href);
+      // user in-app-browser command here!
+      Start.openBrowser($event.srcElement.href);
+      /*global ionic*/
+      if (ionic.Platform.isWebView()) {
+        $event.preventDefault();
+      }
+    }
+    //console.log($event.srcElement);
+  };
+
+  /**
    * Open in-app browser from mwaysolutions
   **/
   this.openBrowser = function ($link) {
@@ -141,7 +162,7 @@ angular.module('main')
     return $http(req)
     .success(function () {
       // everything worked, let's return the json data
-      console.log('Tweets retrieved.');
+      // console.log('Tweets retrieved.');
       //return data;
     })
     .error(function (data) {
@@ -187,13 +208,13 @@ angular.module('main')
 
       this.getToken().then(function () {
 
-        console.log('searching for ' + that.someData.searchString);
+        // console.log('searching for ' + that.someData.searchString);
 
         that.getTweetsByHashtag(that.someData.searchString).then(function (data) { //2. so you can use .then()
           //console.log('DATA: ' + data);
 
           that.someData.tweets = data.data.statuses;
-          console.log(that.someData.tweets);
+          // console.log(that.someData.tweets);
         });
 
       });

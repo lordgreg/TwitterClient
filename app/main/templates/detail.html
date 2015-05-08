@@ -29,7 +29,7 @@
         </div>
         <div class="col col-80">
           <p><b>{{detail.tweet.user.name}}</b> <small>@{{detail.tweet.user.screen_name}}</small></p>
-          <p ng-bind-html="detail.tweet.text | linky" ng-click="detail.clickedLink($event)"></p>
+          <p ng-bind-html="detail.tweet.text | linky" ng-click="Start.clickedLink($event)"></p>
           <p align="right"><small>{{detail.tweet.created_at | datestringToObject | date:'short'}}</small></p>
         </div>
       </div>

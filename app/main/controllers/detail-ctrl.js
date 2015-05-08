@@ -12,27 +12,6 @@ angular.module('main')
     $state.go('main', { '#': tweetId });
   };
 
-  /**
-  * Click links should open in-app-browser
-  * We are going to prevent default if our srcElement is a, then check if we
-  * have URL saved. If this is true, we prevent, otherwise we continue.
-  **/
-  this.clickedLink = function ($event) {
-
-    // console.log($event);
-
-    if ($event.srcElement.tagName === 'A' && $event.srcElement.href !== '') {
-      console.log('we clicked the link ' + $event.srcElement.href);
-      // user in-app-browser command here!
-      Start.openBrowser($event.srcElement.href);
-      /*global ionic*/
-      if (ionic.Platform.isWebView()) {
-        $event.preventDefault();
-      }
-    }
-    //console.log($event.srcElement);
-  };
-
   //console.log('Hello from your Controller: DetailCtrl in module main:. This is your controller:', this);
   // TODO: do your controller thing
   //OPTION 1 TO RETRIEVE ID
