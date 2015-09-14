@@ -45,7 +45,7 @@ angular.module('main')
     if ($event.srcElement.tagName === 'A' && $event.srcElement.href !== '') {
       // console.log('we clicked the link ' + $event.srcElement.href);
       // user in-app-browser command here!
-      Start.openBrowser($event.srcElement.href);
+      this.openBrowser($event.srcElement.href);
       /*global ionic*/
       if (ionic.Platform.isWebView()) {
         $event.preventDefault();
